@@ -5,6 +5,8 @@ import {
   signInWithEmailAndPassword
 } from 'firebase/auth';
 
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
+
 export function firebaseConfig() {
   const config = {
     apiKey: 'AIzaSyCrbQ2awR3giFzX6YPQXx9QR3eUP1ldO8o',
@@ -38,4 +40,19 @@ export async function firebaseIniciarSesion(email, password) {
   }
 
   return true;
+}
+
+export async function firebaseBuscar(coleccionAbuscar) {
+  const listado = [];
+  const consulta = collection(getFirestore(), coleccionAbuscar);
+
+  const result = await getDocs(consulta);
+
+  result.forEach((document) => {
+    const obj = document.data();
+    obj.id = document.id;
+    listado.push(obj);
+  });
+
+  return listado;
 }
