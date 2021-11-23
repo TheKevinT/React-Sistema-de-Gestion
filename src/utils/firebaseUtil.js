@@ -5,8 +5,14 @@ import {
   signInWithEmailAndPassword
 } from 'firebase/auth';
 
-import { collection, getDocs, getFirestore } from 'firebase/firestore';
-
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  setDoc,
+  doc
+} from 'firebase/firestore';
+import { uuid } from 'uuidv4';
 export function firebaseConfig() {
   const config = {
     apiKey: 'AIzaSyCrbQ2awR3giFzX6YPQXx9QR3eUP1ldO8o',
@@ -55,4 +61,10 @@ export async function firebaseBuscar(coleccionAbuscar) {
   });
 
   return listado;
+}
+
+export function save(coleccion, objeto) {
+  objeto.id = uuid();
+  const documento = doc(getFirestore(), coleccion, objeto.id);
+  setDoc(documento, objeto);
 }

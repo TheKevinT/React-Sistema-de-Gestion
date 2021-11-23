@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import {
-  Avatar,
   Box,
   Card,
   Checkbox,
@@ -115,11 +114,11 @@ const CustomerListResults = ({ customers, ...rest }) => {
                       }}
                     >
                       <Typography color="textPrimary" variant="body1">
-                        {customer.firstname}
+                        {customer.firstName}
                       </Typography>
                     </Box>
                   </TableCell>
-                  <TableCell>{customer.lastname}</TableCell>
+                  <TableCell>{customer.lastName}</TableCell>
 
                   <TableCell>{customer.email}</TableCell>
 

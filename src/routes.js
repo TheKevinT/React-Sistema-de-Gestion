@@ -2,6 +2,7 @@ import { Navigate } from 'react-router-dom';
 import DashboardLayout from './components/DashboardLayout';
 import MainLayout from './components/MainLayout';
 import Account from './pages/Account';
+import AddCustomer from './pages/AddCustomer';
 import CustomerList from './pages/CustomerList';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
@@ -17,6 +18,7 @@ const routes = [
     children: [
       { path: 'account', element: <Account /> },
       { path: 'customers', element: <CustomerList /> },
+      { path: 'customer-new', element: <AddCustomer /> },
       { path: 'dashboard', element: <Dashboard /> },
       { path: 'products', element: <ProductList /> },
       { path: 'settings', element: <Settings /> },
